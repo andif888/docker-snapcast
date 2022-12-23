@@ -1,0 +1,17 @@
+version: '2'
+services:
+  snapcast:
+    image: andif888/snapcast
+    container_name: snapcast
+    restart: always
+    ports:
+      - "6600:6600"
+      - "6680:6680"
+      - "1704:1704"
+      - "1705:1705"
+      - "1780:1780"
+    environment:
+      MOPIDY_SCAN: "no"
+    volumes:
+      - ./media:/var/lib/mopidy/media:ro
+      - ./playlists:/var/lib/mopidy/m3u
